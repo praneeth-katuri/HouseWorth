@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Housing Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+
+<body>
+    <h1>Housing Value Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="area">Area (in square feet):</label>
+        <input type="number" id="area" name="area" required /><br /><br />
+
+        <label for="bedrooms">Number of Bedrooms:</label>
+        <input type="number" id="bedrooms" name="bedrooms" required /><br /><br />
+
+        <label for="bathrooms">Number of Bathrooms:</label>
+        <input type="number" id="bathrooms" name="bathrooms" required /><br /><br />
+
+        <label for="stories">Number of Stories:</label>
+        <input type="number" id="stories" name="stories" required /><br /><br />
+
+        <label for="mainroad">Is the House close to mainroad:</label>
+        <select id="mainroad" name="mainroad">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <br /><br />
+
+        <label for="guestroom">Is Guest Room Available:</label>
+        <select id="guestroom" name="guestroom">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <br /><br />
+
+        <label for="basement">Does the House have Basement:</label>
+        <select id="basement" name="basement">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <br /><br />
+
+        <label for="hotwaterheating">Is Water Heating Facility Available:</label>
+        <select id="hotwaterheating" name="hotwaterheating">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <br /><br />
+
+        <label for="airconditioning">Is Air Conditioning Facilty Available:</label>
+        <select id="airconditioning" name="airconditioning">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <br /><br />
+
+        <label for="parking">Parking Spaces:</label>
+        <input type="number" id="parking" name="parking" required /><br /><br />
+
+        <label for="prefarea">Is the House located in preferred area:</label>
+        <select id="prefarea" name="prefarea">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <br /><br />
+        <label for="furnishingstatus_semi-furnished">Is the House Semi_Furnished:</label>
+        <select id="furnishingstatus_semi-furnished" name="furnishingstatus_semi-furnished">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <br /><br />
+        <label for="furnishingstatus_unfurnished">Is the House Unfurnished:</label>
+        <select id="furnishingstatus_unfurnished" name="furnishingstatus_unfurnished">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+        <br /><br />
+
+        <button type="submit">Predict</button>
+    </form>
+    <div>
+        {% if prediction %}
+        <p>
+            <span>The Estimated Value is: {{ prediction }} Lakhs</span>
+        </p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
