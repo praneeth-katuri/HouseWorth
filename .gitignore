@@ -1,0 +1,7 @@
+__pycache__/
+**/__pycache__/
+HPP_ML/
+.google-cookie
+.cache/
+.env
+models/
