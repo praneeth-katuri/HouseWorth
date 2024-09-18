@@ -9,6 +9,7 @@ This repository contains a Python implementation for predicting housing prices u
 - [Usage](#usage)
 - [Model Evaluation](#model-evaluation)
 - [Model Selection](#model-selection)
+- [Contributing](#contributing)
 - [License](#license)
 
 
@@ -20,7 +21,7 @@ The project Utilizes the following dataset obtained from Kaggle.
 ## Webpage Interface
 
 <div align="center">
-    <img src="Screenshots/HomeWorth.gif" width="600" height="300">
+    <img src="Screenshots/HomeWorth.gif">
 </div>
 
 ## Usage
@@ -71,12 +72,16 @@ The best model is selected based on a combined score derived from both MSE and R
 combined_score = 0.5 * normalized_mse + 0.5 * normalized_r2
 ```
 
+The model with the highest combined score is considered the best model and is saved for future use.
+
 the best model was determined to be **Linear Regression** with the following metrics:
 
 - **Best Model MSE**: 85.57
 - **Best Model R²**: 0.71
 
-The model with the highest combined score is considered the best model and is saved for future use.
+## Contributing
+
+Contributions to this project are welcome! If you have ideas for improvements or new features, feel free to open an issue or submit a pull request.
 
 ## License
 
