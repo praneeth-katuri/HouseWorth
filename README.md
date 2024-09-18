@@ -16,7 +16,7 @@ This repository contains a Python implementation for predicting house prices usi
 ## Dataset
 The project Utilizes the following dataset obtained from Kaggle.
 
-- [Dataset](https://www.kaggle.com/datasets/ashydv/housing-dataset)
+- [Dataset used for Model Training](https://www.kaggle.com/datasets/ashydv/housing-dataset)
 
 ## Webpage Interface
 
