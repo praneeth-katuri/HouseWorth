@@ -34,6 +34,19 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+
+    furnishing_status = request.form['furnishing_status']
+
+    if furnishing_status == 'furnished':
+        furnishing_semi_furnished = 'no'
+        furnishing_unfurnished = 'no'
+    elif furnishing_status == 'semi-furnished':
+        furnishing_semi_furnished = 'yes'
+        furnishing_unfurnished = 'no'
+    else:
+        furnishing_semi_furnished = 'no'
+        furnishing_unfurnished = 'yes'
+
     # Geting the form data
     input_data = {
         'area': int(request.form['area']),
@@ -47,8 +60,8 @@ def predict():
         'airconditioning': request.form['airconditioning'],
         'parking': int(request.form['parking']),
         'prefarea': request.form['prefarea'],
-        'furnishingstatus_semi-furnished': request.form['furnishingstatus_semi-furnished'],
-        'furnishingstatus_unfurnished': request.form['furnishingstatus_unfurnished']
+        'furnishingstatus_semi-furnished': furnishing_semi_furnished,
+        'furnishingstatus_unfurnished': furnishing_unfurnished
     }
 
     # Get predictions
