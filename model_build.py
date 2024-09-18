@@ -24,7 +24,7 @@ Q3_area = housing['area'].quantile(0.75)
 IQR_area = Q3_area - Q1_area
 housing = housing[(housing['area'] >= Q1_area - 1.5*IQR_area) & (housing['area'] <= Q3_area + 1.5*IQR_area)]
 
-# Map 'yes' and 'no' attributes to 1 and 0
+# Mapping 'yes' and 'no' attributes to 1 and 0
 yes_no_attributes = ['mainroad', 'guestroom', 'basement', 'hotwaterheating', 'airconditioning', 'prefarea']
 mapping = {'yes': 1, 'no': 0}
 for x in yes_no_attributes:
@@ -59,5 +59,38 @@ mse_rf = mean_squared_error(y_test, y_pred_rf)
 r2_rf = r2_score(y_test, y_pred_rf)
 
 # Saving model and scaler
+
+# Normalize MSE (lower is better, so we invert it)
+mse_lr_normalized = 1 / (1 + mse_lr)  # Inverting MSE for normalization
+mse_rf_normalized = 1 / (1 + mse_rf)
+
+# Normalize R² (higher is better)
+r2_lr_normalized = r2_lr
+r2_rf_normalized = r2_rf
+
+# Combining scores
+score_lr = 0.5 * mse_lr_normalized + 0.5 * r2_lr_normalized
+score_rf = 0.5 * mse_rf_normalized + 0.5 * r2_rf_normalized
+
+# Model selection based on combined scores
+if score_lr > score_rf:
+    best_model = "Linear Regression"
+    best_mse = mse_lr
+    best_r2 = r2_lr
+else:
+    best_model = "Random Forest Regression"
+    best_mse = mse_rf
+    best_r2 = r2_rf
+
+print(f"\nBest Model: {best_model}")
+print(f"Best Model MSE: {best_mse}")
+print(f"Best Model R²: {best_r2}")
+
+# Saving the best model
+if best_model == "Linear Regression":
+    joblib.dump(model_lr, 'ML_Models/model.joblib')
+else:
+    joblib.dump(model_rf, 'ML_Models/model.joblib')
+
+# Saving the scaler used for later use
 joblib.dump(scaler, 'ML_Models/scaler.joblib')
-joblib.dump(model_rf, 'ML_Models/model.joblib')

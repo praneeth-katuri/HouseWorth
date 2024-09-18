@@ -1,42 +1,19 @@
-/* *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+h1 {
+    padding-top: 5%;
+}
+
+form {
+    margin-top: 6rem;
     
 }
-h1{
-    text-transform: uppercase;
-    text-align: center;
-    margin-top:35px;
-    color: #882c2c;
-}
+
 body {
-    background-image: url(Home.jpg);
-    background-position: center;
-    background-size: cover;
-
+    font-family: "Inria Sans", sans-serif;
+    background-color: rgb(228, 166, 207);
 }
-input{
-    margin-top:20px;
 
-
-
+@media (width <= 768px) {
+    .tc {
+        text-align: center;
+    }
 }
-label:hover{
-    color: aqua;
-}
-input:hover{
-    color: #882c2c;
-}
-form{
-    text-transform:uppercase;
-    text-decoration: none;
-    margin-left: 550px;
-    font-size: 18px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: rgb(200, 27, 197);
-
-    
-
-} */
-

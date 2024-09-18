@@ -47,7 +47,7 @@ def predict():
         furnishing_semi_furnished = 'no'
         furnishing_unfurnished = 'yes'
 
-    # Geting the form data
+    # Geting data from the forms
     input_data = {
         'area': int(request.form['area']),
         'bedrooms': int(request.form['bedrooms']),
@@ -64,8 +64,8 @@ def predict():
         'furnishingstatus_unfurnished': furnishing_unfurnished
     }
 
-    # Get predictions
-    prediction = predict_price(input_data)
+    # making prediction
+    prediction = round(predict_price(input_data), 2)
 
     return render_template('index.html', prediction = prediction)
 
