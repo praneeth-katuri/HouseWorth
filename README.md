@@ -1,6 +1,6 @@
 # HouseWorth
 
-This repository contains a Python implementation for predicting house prices using machine learning techniques. The code utilizes a dataset of housing features to train and evaluate two regression models: Linear Regression and Random Forest Regression. The best model is selected based on a combined evaluation of Mean Squared Error (MSE) and R-squared (R²).
+Python implementation for predicting house prices using machine learning techniques. The project utilizes a dataset of housing features to train and evaluate two regression models: Linear Regression and Random Forest Regression. The best model is selected based on a combined evaluation of Mean Squared Error (MSE) and R-squared (R²).
 
 ## Table of Contents
 
